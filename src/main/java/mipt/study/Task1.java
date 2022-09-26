@@ -1,20 +1,27 @@
+package mipt.study;
 public class Task1
 {
     //посчитать факториал числа n
     //0.5 балла - если посчитаете в цикле
     //1 балл - если посчитаете рекурсией
     public static int fact(int n){
-        return n * fact(n-1);
+        if (n == 0) {
+            return 1;
+        }
+        else if (n > 1) {
+            return n * fact(n-1);
+        }
+        return n;
     }
 
     //вывести таблицу умножения на экран - 1 балл
     //подсказка - использовать двойной for
     public static void table(){
         for (int i = 1; i < 10; i++) {
-            for (int j = 1; i < 10; i++){
-                System.out.print(i + "*" + j + "=" + i*j + "    ")
+            for (int j = 1; j < 10; j++){
+                System.out.print(i + "*" + j + "=" + i*j + "    ");
             }
-            System.out.println()
+            System.out.println();
         }
     }
 
@@ -23,10 +30,12 @@ public class Task1
     //для любого числа - 1 балл
     //подсказка - в случае для любого числа используйте while
     public static int sum(int n){
+        int sum_of_digits = 0;
         while (n > 0) {
-
+            sum_of_digits += n%10;
+            n = n/10;
         }
-        return n;
+        return sum_of_digits;
     }
 
     //определить, является ли год високосным
@@ -37,20 +46,23 @@ public class Task1
     //Годы 2100, 2200 и 2300 - не високосные.
     //за правильный ответ - 0.5 балла
     public static boolean isLeapYear(int year) {
-        //Ваше решение здесь
-        return true;
+        if (year % 400 == 0 | (year % 4 == 0 & year % 100 != 0)) {
+            return true;
+        }
+        return false;
     }
 
     //здесь вам нужно будет использовать результат прошлой задачи
     //и вывести, сколько дней в году
     //правильный ответ - 0.5 балла
     public static int daysInYear(int year) {
+        int days;
         if (isLeapYear(year)){
-            //
+            days = 366;
         } else {
-            //
+            days = 365;
         }
-        return 0;
+        return days;
     }
 
     //определить номер дня недели по строке
@@ -98,7 +110,7 @@ public class Task1
         System.out.println(sum(12345));
 
         System.out.println("Дней в году:");
-        System.out.println(daysInYear(2019));
+        System.out.println(daysInYear(200));
 
         System.out.println("День недели:");
         System.out.println(dayOfTheWeek("Понедельник"));
