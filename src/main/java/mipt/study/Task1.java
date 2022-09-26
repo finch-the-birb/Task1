@@ -1,4 +1,5 @@
 package mipt.study;
+import java.util.Arrays;
 public class Task1
 {
     //посчитать факториал числа n
@@ -69,14 +70,22 @@ public class Task1
     //например: Понедельник - 1
     //правильный ответ - 1 балл
     public static int dayOfTheWeek(String n){
-        //Ваше решение здесь
-        return 0;
+        return switch (n) {
+            case "Понедельник" -> 1;
+            case "Вторник" -> 2;
+            case "Среда" -> 3;
+            case "Четверг" -> 4;
+            case "Пятница" -> 5;
+            case "Суббота" -> 6;
+            case "Воскресенье" -> 7;
+            default -> 0;
+        };
     }
 
     //вывести массив на экран в виде: [1, 5, 3, 7, 10, 2, 5]
     //правильное решение - 0.5 балла
     public static void printArray(int[] array){
-        //Ваше решение здесь
+        System.out.println(Arrays.toString(array));
     }
 
     //вывести двойной массив на экран в виде:
@@ -85,7 +94,7 @@ public class Task1
     // ...
     //правильное решение - 0.5 балла
     public static void printArray(int[][] array){
-        //Ваше решение здесь
+        System.out.println(Arrays.deepToString(array));
     }
 
     //отсортировать одномерный массив в порядке возрастания
@@ -93,7 +102,18 @@ public class Task1
     //метод пузырька (один из самых простых для понимания)
     //правильный ответ - 1 балл
     public static int[] sort(int[] array){
-        //Ваше решение здесь
+        for (int left = 0; left < array.length; left++) {
+            int value = array[left];
+            int i = left - 1;
+            for (; i >= 0; i--) {
+                if (value < array[i]) {
+                    array[i + 1] = array[i];
+                } else {
+                    break;
+                }
+            }
+            array[i + 1] = value;
+        }
         return array;
     }
 
