@@ -4,13 +4,18 @@ public class Task1
     //0.5 балла - если посчитаете в цикле
     //1 балл - если посчитаете рекурсией
     public static int fact(int n){
-        return n;
+        return n * fact(n-1);
     }
 
     //вывести таблицу умножения на экран - 1 балл
     //подсказка - использовать двойной for
     public static void table(){
-        //Ваше решение здесь
+        for (int i = 1; i < 10; i++) {
+            for (int j = 1; i < 10; i++){
+                System.out.print(i + "*" + j + "=" + i*j + "    ")
+            }
+            System.out.println()
+        }
     }
 
     //посчитать сумму цифр числа
@@ -18,7 +23,9 @@ public class Task1
     //для любого числа - 1 балл
     //подсказка - в случае для любого числа используйте while
     public static int sum(int n){
-        //Ваше решение здесь
+        while (n > 0) {
+
+        }
         return n;
     }
 
